@@ -1,5 +1,4 @@
 import { Typography } from '@material-ui/core'
-import React, { useContext } from 'react'
 import { withController } from '../../hoc/withController'
 import Input from './input'
 import { ReminderController } from './ReminderController'

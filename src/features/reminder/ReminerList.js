@@ -16,8 +16,8 @@ export default function ReminderList() {
     const { reminderList,
         onDelete,
         onEdit,
-        onClickFavorite,
-        onClickDone } = useReminderContext()
+        onClickDone,
+        onClickFavorite } = useReminderContext()
     return (
         <List>
             {reminderList.map((item, key) => {
@@ -28,11 +28,15 @@ export default function ReminderList() {
                             <Checkbox
                                 edge="start"
                                 checked={item.isDone}
+                                onClick={() => onClickDone(item)}
                                 tabIndex={-1}
                                 disableRipple
                                 inputProps={{ 'aria-labelledby': labelId }}
                             />
-                            <FavoriteButton checked={item.isFavorite} />
+                            <FavoriteButton
+                                checked={item.isFavorite}
+                                onClick={() => onClickFavorite(item)}
+                            />
 
                         </ListItemIcon>
                         <ListItemText id={labelId} primary={item.title} />
